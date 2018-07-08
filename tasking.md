@@ -49,7 +49,17 @@
     ```
 2. output:
      ```javascript
-    1. orderDetail
+    1. orderDetail:[
+        {
+            dishesItems:{
+                id:string,
+                name:string,
+                count:number,
+                price:float
+            },
+            subtotal:float
+        }
+    ]
     ```
 
 ## 3. 计算每种商品使用的优惠方式
@@ -99,13 +109,15 @@
     ```javascript
     receipt:{
         orderDetail:[
-            dishesItems:[{
-                id:string,
-                name:string,
-                count:number,
-                price:float
-            }],
-            subtotal:float
+            {
+                dishesItems:{
+                    id:string,
+                    name:string,
+                    count:number,
+                    price:float
+                },
+                subtotal:float
+            }
         ],
         discountsItem:[
             {
