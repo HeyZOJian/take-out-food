@@ -17,7 +17,7 @@ function bestCharge(selectedItems) {
   for (const orderDetailItem of orderDetailItems) {
     orderDetailString += `${orderDetailItem.dishesItem.name} x ${orderDetailItem.dishesItem.count} = ${orderDetailItem.subtotal}元\n`
   }
-  
+
   let discountString = ''
   if (discountItems.type === '指定菜品半价') {
     discountString += '使用优惠:\n'
@@ -29,17 +29,21 @@ function bestCharge(selectedItems) {
     }
     discountString += `)，省${discountItems.saveMoney}元
 -----------------------------------`
-  }
-  else if (discountItems.type === '满30减6元') {
+  } else if (discountItems.type === '满30减6元') {
     discountString += '使用优惠:\n'
     discountString += `${discountItems.type}，省${discountItems.saveMoney}元
 -----------------------------------`
   }
-
-  let receiptString = `============= 订餐明细 =============
-${orderDetailString}
------------------------------------
+  let receiptString = ''
+  if (discountItems.type)
+    receiptString = `============= 订餐明细 =============
+${orderDetailString}-----------------------------------
 ${discountString}
+总计：${total}元
+===================================`
+  else
+    receiptString = `============= 订餐明细 =============
+${orderDetailString}-----------------------------------
 总计：${total}元
 ===================================`
   // console.info(receiptString)

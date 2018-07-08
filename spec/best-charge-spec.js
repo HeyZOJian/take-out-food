@@ -63,7 +63,7 @@ describe('Take out food', function () {
     let expected = [{
       id: "ITEM0013",
       name: '肉夹馍',
-      price: (6.00).toFixed(2),
+      price: (6.00),
       count: 4
     }, ]
     expect(getEachdishesInfo(inputs, allItemsInfo)).toEqual(expected)
@@ -73,7 +73,7 @@ describe('Take out food', function () {
     let inputs = [{
       id: "ITEM0013",
       name: '肉夹馍',
-      price: (6.00).toFixed(2),
+      price: (6.00),
       count: 4
     }, ]
     const promotions = loadPromotions()
@@ -81,10 +81,10 @@ describe('Take out food', function () {
       dishesItem: {
         id: "ITEM0013",
         name: '肉夹馍',
-        price: (6.00).toFixed(2),
+        price: (6.00),
         count: 4
       },
-      subtotal: (24.00).toFixed(2)
+      subtotal: (24.00)
     }]
     expect(calculateEachdishesSubtotal(inputs)).toEqual(expected)
   });
@@ -93,10 +93,10 @@ describe('Take out food', function () {
     let inputs = [{
       id: "ITEM0013",
       name: '肉夹馍',
-      price: (6.50).toFixed(2),
+      price: (6.50),
       count: 5
     }, ]
-    let expected = 26.5
+    let expected = [ [ '肉夹馍' ], 6 ]
     expect(promotionOfEach30cut6(inputs)).toEqual(expected)
   });
 
@@ -104,11 +104,11 @@ describe('Take out food', function () {
     let inputs = [{
       id: "ITEM0013",
       name: '肉夹馍',
-      price: (6.00).toFixed(2),
+      price: (6.00),
       count: 5
     }, ]
     let promotions = ['ITEM0001', 'ITEM0013']
-    let expected = 15
+    let expected = [ [ '肉夹馍' ], 15 ]
 
     expect(promotionOfHalfPrice(inputs, promotions)).toEqual(expected)
   });
